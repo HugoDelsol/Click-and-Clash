@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        margin: 0em;        
+    }
+
+    main {
+        display:flex ;
+        height: calc(100dvh - 100PX);
+        justify-content: center;
+        align-items: center;        
+    }
+
+    header, footer , a{
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        background-color: rgb(163, 163, 163);
+        justify-content: center;        
+        color: black;
+        flex-wrap: wrap;
+    }
+
+    p {
+        background-color: beige;
+        border: 0.1em solid;
+        padding: 0.5em;
+        border-radius: 0.2em;
+        text-align: center;
+        font-size: 3em;
+    }
+
+    @media (orientation: landscape) {
+        header, footer {
+            min-height: 40px;
+            font-size: 0.9em;
+            
+        }
+
+        main {
+            flex-direction: column;
+            
+            height: (100dvh - 80px); /* Important : sinon le calc(100dvh - 100px) fausse tout */
+        }
+
+        p {
+            font-size: 2.25em;
+            
+        }
+    }
+
+    @media (max-width: 768px) {
+        p {
+            font-size: 1em;
+        }
+    }
+
+</style>
+
+
+<body>
+    <header>
+        <a href="file:///C:/Users/PC/Desktop/Visual%20Studio%20Code/PROJETS%2012/JEUX/PierreFeuilleCiseaux/pierreFeuilleCiseaux.html">PLAY</a>
+    </header>
+    <main>
+        <p>
+            🪨 Rock crushes ✂️ Scissors and therefore wins against them.<br>
+            📜 Paper wraps 🪨 Rock and therefore wins against it.<br>
+            ✂️ Scissors cut 📜 Paper and therefore win against it.<br>
+        </p>
+    </main>
+    <footer>
+        <a href="file:///C:/Users/PC/Desktop/Visual%20Studio%20Code/PROJETS%2012/JEUX/PierreFeuilleCiseaux/pierreFeuilleCiseaux.html">PLAY</a>
+    </footer>
+</body>
+</html>
