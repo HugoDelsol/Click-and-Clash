@@ -5,7 +5,7 @@ Ce projet fait partie de la **semaine 1**, et vise à poser les bases du dévelo
 
 ---
 
-# Objectif 
+## Objectif 
 
 - Reproduire le jeu classique **Pierre - Feuille - Ciseaux**
 - Travailler la logique de jeu, les événements utilisateurs et l'affichage dynamique
@@ -13,7 +13,7 @@ Ce projet fait partie de la **semaine 1**, et vise à poser les bases du dévelo
 
 ---
 
-# Technologies utilisées 
+## Technologies utilisées 
 
 - HTML
 - CSS
