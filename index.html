@@ -1,312 +1,333 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeu pierre feuille ciseau </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeu pierre feuille ciseau </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 
 <style>
-    body {
-        margin: 0;  
-        height: 100%;        
-    }
+body {
+    margin: 0;  
+    height: 100%;        
+}
 
-    header, footer {
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    background-color: rgb(163, 163, 163);
-    justify-content: center;        
-    color: black;
-    flex-wrap: wrap;
+header, footer {
+min-height: 50px;
+display: flex;
+align-items: center;
+background-color: rgb(163, 163, 163);
+justify-content: center;        
+color: black;
+flex-wrap: wrap;
 }
 
 a {
-    color: black;
-    
+color: black;
+
 }
 
 
-    main {
-        padding: 0px 0px 25px 0px;
-        text-align: center;
-        min-height: calc(100dvh - 125px); /* - 125 PX car on enleve le padding de main ainsi que la taille de header et footer */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
+main {
+    padding: 0px 0px 25px 0px;
+    text-align: center;
+    min-height: calc(100dvh - 125px); /* - 125 PX car on enleve le padding de main ainsi que la taille de header et footer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+h1 {
+    background-color: rgba(128, 128, 128, 0.26);
+    border-radius: 0.1em;
+    box-shadow: 3px 3px 6px;
+    font-size: 3em;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+}
+
+
+.Boutons
+ {
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    gap: 1em;
+}
+
+button{
+    box-shadow: 3px 3px 6px;
+    border-radius: 0.25em;
+    margin: 0.25em;
+    padding: 0.75em;
+    font-size: 5em;
+    transition: 0.1s;
+}
+
+.Infos {
+    margin-top: 1em;
+    padding: 0.2em 2em 0.2em 2em;
+    background-color: rgba(179, 179, 179, 0.164);
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    justify-content: space-between;
+    border-radius: 0.5em;
+    box-shadow: 3px 3px 6px;
+    font-size: 1.2em;
+    
+}
+
+.scoreCP,
+.scoreC,
+.scoreP { 
+    padding: 10px;
+    display: inline-block;
+}
+
+.scoreCP{
+    background-color: rgba(0, 0, 0, 0.082);
+    border-radius: 0.5em;
+    padding: 10px;
+}
+
+
+@keyframes clignotement {
+    0% {
+        scale: 1;
+    }
+    50% {
+        scale: 1.05;            
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+.boutons-clignotants {
+    animation: clignotement 0.5s infinite; 
+}  
+
+@keyframes boom {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 0px transparent;
+    }
+    30% {
+        transform: scale(1.5) rotate(1deg);
+        text-shadow: 0 0 10px gold;
+    }
+    50% {
+        transform: scale(1.3) rotate(-1deg);
+        text-shadow: 0 0 5px red;
+    }
+    70% {
+        transform: scale(1.4) rotate(1deg);
+        text-shadow: 0 0 8px orange;
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        text-shadow: 0 0 0px transparent;
+    }
     }
 
+.boom {
+    animation: boom 0.6s ease;
+}
+
+button:hover {
+    scale: 1.05;
+}
+
+ .bouton-selectionne {
+    border: 1px solid blue;
+    box-shadow: 0 0 10px blue;
+}
+
+.boutonIaSlectione {
+    border: 1px solid red;
+    box-shadow: 0 0 10px red;
+}
+
+
+@media (max-width: 768px)  {
     h1 {
-        background-color: rgba(128, 128, 128, 0.26);
-        border-radius: 0.1em;
-        box-shadow: 3px 3px 6px;
+        font-size: 2em;
+    }
+
+    footer {
+        margin-top: 1em ;
+    }
+
+    .Boutons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
         font-size: 3em;
-        padding: 0.2em 0.5em 0.2em 0.5em;
-    }
-    
-
-    .Boutons
-     {
-        display: flex;
-        flex-direction: row;
-        padding: 1em;
-        gap: 1em;
-    }
-
-    button{
-        box-shadow: 3px 3px 6px;
-        border-radius: 0.25em;
-        margin: 0.25em;
         padding: 0.75em;
-        font-size: 5em;
-        transition: 0.1s;
     }
-    
+
     .Infos {
-        margin-top: 1em;
         padding: 0.2em 2em 0.2em 2em;
-        background-color: rgba(179, 179, 179, 0.164);
-        display: flex;
+        font-size: 1em;
+        width: 75%;
         flex-direction: row;
-        width: 30%;
-        justify-content: space-between;
-        border-radius: 0.5em;
-        box-shadow: 3px 3px 6px;
-        font-size: 1.2em;
-        
+        align-items: center;
+        gap: 0.5em;
+        text-align: center;
     }
+}
 
-    .scoreCP,
-    .scoreC,
-    .scoreP { 
-        padding: 10px;
-        display: inline-block;
+@media (max-width: 1150px) {
+    .Infos {
+        width:75%;
     }
-
-    .scoreCP{
-        background-color: rgba(0, 0, 0, 0.082);
-        border-radius: 0.5em;
-        padding: 10px;
-    }
-
-
-    @keyframes clignotement {
-        0% {
-            scale: 1;
-        }
-        50% {
-            scale: 1.05;            
-        }
-        100% {
-            scale: 1;
-        }
-    }
-
-    .boutons-clignotants {
-        animation: clignotement 0.5s infinite; 
-    }  
-    
-    @keyframes boom {
-        0% {
-            transform: scale(1);
-            text-shadow: 0 0 0px transparent;
-        }
-        30% {
-            transform: scale(1.5) rotate(1deg);
-            text-shadow: 0 0 10px gold;
-        }
-        50% {
-            transform: scale(1.3) rotate(-1deg);
-            text-shadow: 0 0 5px red;
-        }
-        70% {
-            transform: scale(1.4) rotate(1deg);
-            text-shadow: 0 0 8px orange;
-        }
-        100% {
-            transform: scale(1) rotate(0);
-            text-shadow: 0 0 0px transparent;
-        }
-        }
-
-    .boom {
-        animation: boom 0.6s ease;
-    }
-
-    button:hover {
-        scale: 1.05;
-    }
-
-    
-
-    @media (max-width: 768px)  {
-        h1 {
-            font-size: 2em;
-        }
-
-        footer {
-            margin-top: 1em ;
-        }
-
-        .Boutons {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        button {
-            font-size: 3em;
-            padding: 0.75em;
-        }
-
-        .Infos {
-            padding: 0.2em 2em 0.2em 2em;
-            font-size: 1em;
-            width: 75%;
-            flex-direction: row;
-            align-items: center;
-            gap: 0.5em;
-            text-align: center;
-        }
-    }
-
-    @media (max-width: 1150px) {
-        .Infos {
-            width:75%;
-        }
-    }
+}
 
 
 </style>
 
 
 <body>
+
     
-        
-    <header>
-        <a href="reglesDuJeu.html">RULES OF THE GAME</a>
-    </header>
-    
-    <main>
-        <h1>FIGHT THE COMPUTER</h1>
-        <div class="Boutons">
-            <button aria-label="Pierre" id = "click1">🪨</button> 
-            <button aria-label="Feuille" id = "click2">📜</button> 
-            <button aria-label="Ciseaux" id = "click3">✂️</button> 
-        </div>
-        <div class="Infos">
-            <p>COMPUTER : <span class="scoreC">0</span></p>
-            <p><span class="scoreCP"> </span></p>
-            <p><span class="scoreP">0</span> : PLAYER</p>
-        </div>
-    </main>
-    
-    <footer>
-        <a href="reglesDuJeu.html">RULES OF THE GAME</a>
-    </footer>
+<header>
+    <a href="reglesDuJeu.html">RULES OF THE GAME</a>
+</header>
+
+<main>
+    <h1>FIGHT THE COMPUTER</h1>
+    <div class="Boutons">
+        <button aria-label="Pierre" id = "click1">🪨</button> 
+        <button aria-label="Feuille" id = "click2">📜</button> 
+        <button aria-label="Ciseaux" id = "click3">✂️</button> 
+    </div>
+    <div class="Infos">
+        <p>COMPUTER : <span class="scoreC">0</span></p>
+        <p><span class="scoreCP"> </span></p>
+        <p><span class="scoreP">0</span> : PLAYER</p>
+    </div>
+</main>
+
+<footer>
+    <a href="reglesDuJeu.html">RULES OF THE GAME</a>
+</footer>
 
 </body>
 
 <script>
 
-    function affichageResultat(scorePlayer,scoreComputer){
-        
-        let affichageResultatC = document.querySelector(".scoreC");
-        let affichageResultatP = document.querySelector(".scoreP");
-        
-        let affichage2 = `${scoreComputer}`;
-        let affichage3 = `${scorePlayer}`;
-        
-        affichageResultatC.innerHTML = affichage2;
-        affichageResultatP.innerHTML = affichage3
-    }
+function affichageResultat(scorePlayer,scoreComputer){
+    
+    let affichageResultatC = document.querySelector(".scoreC");
+    let affichageResultatP = document.querySelector(".scoreP");
+    
+    let affichage2 = `${scoreComputer}`;
+    let affichage3 = `${scorePlayer}`;
+    
+    affichageResultatC.innerHTML = affichage2;
+    affichageResultatP.innerHTML = affichage3
+}
 
-    function messageUT(messagetxt){
-        const message = document.querySelector(".scoreCP");
-        message.innerHTML = messagetxt;
+function messageUT(messagetxt){
+    const message = document.querySelector(".scoreCP");
+    message.innerHTML = messagetxt;
 
-        message.classList.remove("boom");
-        void message.offsetWidth; // ← C'est ça le hack magique
-        message.classList.add("boom");
-    }
-
-
-    function ComputerIa(){
-        const choixPossible = ["click1" , "click2" , "click3"];
-        const choixAleatoire = choixPossible[Math.floor(Math.random() * choixPossible.length)];
-        const bouton = document.querySelector(`#${choixAleatoire}`);
-         
-        return choixAleatoire;  
-    }
-
-    function ChoixUT(evenement){
-        return evenement.target.id; 
-    }
+    message.classList.remove("boom");
+    void message.offsetWidth; // ← C'est ça le hack magique
+    message.classList.add("boom");
+}
 
 
+function ComputerIa(){
+    const choixPossible = ["click1" , "click2" , "click3"];
+    const choixAleatoire = choixPossible[Math.floor(Math.random() * choixPossible.length)];
+    const bouton = document.querySelector(`#${choixAleatoire}`);
+     
+    return choixAleatoire;  
+}
 
-    function lancerJeu () {
+function ChoixUT(evenement){
+    return evenement.target.id; 
+}
 
-        const Boutons = document.querySelector(".Boutons")
-        let scoreComputer = 0
-        let scorePlayer = 0
 
-        messageUT("- CHOOSE YOUR WEAPON -") 
-        affichageResultat(scorePlayer,scoreComputer)
-        
-        Boutons.addEventListener("click",function(event){
 
-            const boutons = document.querySelectorAll(".Boutons button");
-            boutons.forEach(bouton => bouton.classList.add("boutons-clignotants"));
+function lancerJeu () {
+
+    const Boutons = document.querySelector(".Boutons")
+    let scoreComputer = 0
+    let scorePlayer = 0
+    
+    messageUT("- CHOOSE YOUR WEAPON -") 
+    affichageResultat(scorePlayer,scoreComputer)
+    
+    Boutons.addEventListener("click",function(event){
+    
+       
+    document.querySelectorAll(".Boutons button").forEach(bouton => {
+        bouton.classList.remove("bouton-selectionne", "boutonIaSlectione", "boutons-clignotants");
+    });
+    
+
+    const boutons = document.querySelectorAll(".Boutons button");
+    boutons.forEach(bouton => bouton.classList.add("boutons-clignotants")); 
             
+        
+        
+    const choixUtilisateur = ChoixUT(event);  
+    event.target.classList.add("bouton-selectionne")         
+    
+    const choixIA = ComputerIa();
+    const boutonIa = document.getElementById(choixIA);
+    setTimeout(() => boutonIa.classList.add("boutonIaSlectione"),1800)
+        
             
-            const choixUtilisateur = ChoixUT(event);
+    
+    setTimeout(() => {
 
-            const choixIA = ComputerIa();
-
-            setTimeout(() => {
-                
-                if(choixUtilisateur === choixIA){                              
-                    messageUT("- EQUAL -")
-                } else if (
-                    (choixUtilisateur === "click1" && choixIA === "click3") ||
-                    (choixUtilisateur === "click2" && choixIA === "click1") ||
-                    (choixUtilisateur === "click3" && choixIA === "click2")
-                ) { 
-                    scorePlayer ++;
-                    affichageResultat(scorePlayer,scoreComputer)
-                    messageUT("- WINNER -") 
-                } else {
-                    scoreComputer ++;
-                    affichageResultat(scorePlayer,scoreComputer) 
-                    messageUT("- LOST -") 
-                } 
-
-                if (scorePlayer === 3 && scoreComputer < 3){
-                    window.location.href = "https://www.google.com/"
-                } else if (scoreComputer === 3){
-                    messageUT("- TRY AGAIN -")
-                    setTimeout(() => window.location.href = "index.html", 800); 
-                    
-                }
-                
-                boutons.forEach(bouton => bouton.classList.remove("boutons-clignotants"));               
+    
+    
+        if(choixUtilisateur === choixIA){                              
+            messageUT("- EQUAL -")
+        } else if (
+            (choixUtilisateur === "click1" && choixIA === "click3") ||
+            (choixUtilisateur === "click2" && choixIA === "click1") ||
+            (choixUtilisateur === "click3" && choixIA === "click2")
+        ) { 
+            scorePlayer ++;
+            affichageResultat(scorePlayer,scoreComputer)
+            messageUT("- WINNER -") 
+        } else {
+            scoreComputer ++;
+            affichageResultat(scorePlayer,scoreComputer) 
+            messageUT("- LOST -") 
+        } 
+    
+        if (scorePlayer === 3 && scoreComputer < 3){
+            window.location.href = "https://chatgpt.com/"
+        } else if (scoreComputer === 3){
+            messageUT("- TRY AGAIN -")
+            setTimeout(() => window.location.href = "file:///C:/Users/PC/Desktop/Visual%20Studio%20Code/PROJETS%2012/JEUX/PierreFeuilleCiseaux/pierreFeuilleCiseaux.html", 800); 
+            
+        }
+            
+        boutons.forEach(bouton => bouton.classList.remove("boutons-clignotants"));               
+                             
                        
             
-            },2000)            
-            
-        }); 
-    }
-    
-    
+        },2000)            
+        
+    }); 
+}
+
 lancerJeu()
-    
 
 </script>
-
 
 </html>
