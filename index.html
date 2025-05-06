@@ -310,7 +310,7 @@ function lancerJeu () {
         } 
     
         if (scorePlayer === 3 && scoreComputer < 3){
-            window.location.href = "https://www.google.com/"
+            setTimeout(() => window.location.href = "https://www.google.com/", 800);
         } else if (scoreComputer === 3){
             messageUT("- TRY AGAIN -")
             setTimeout(() => window.location.href = "index.html", 800); 
